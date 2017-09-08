@@ -1,6 +1,7 @@
 package com.example.pictracker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.pictracker.RetrofitService.APIService;
+import com.example.pictracker.RetrofitService.ApiUtils;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
@@ -65,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     /**
      * OAuthLoginHandler를 startOAuthLoginActivity() 메서드 호출 시 파라미터로 전달하거나 OAuthLoginButton
      객체에 등록하면 인증이 종료되는 것을 확인할 수 있습니다.
@@ -113,14 +117,20 @@ public class MainActivity extends AppCompatActivity {
     private class RequestApiTask extends AsyncTask<Void, Void, String> { // 로그인
         @Override
         protected void onPreExecute() {
+         //   mApiResultText.setText((String) "");
         }
         @Override
         protected String doInBackground(Void... params) {
-            String url = "https://openapi.naver.com/v1/nid/getUserProfile.xml";
+            String url = "https://openapi.naver.com/v1/nid/me";
             String at = mOAuthLoginModule.getAccessToken(mContext);
             return mOAuthLoginModule.requestApi(mContext, at, url);
         }
-        protected void onPostExecute(String content) {
+        protected void onPostExecute(String content) {// doInBackground return 값을 content로 받음
+
+            Intent intent = new Intent(getApplicationContext(), Nickname.class);
+            intent.putExtra("userInfoParse",content);
+            startActivity(intent);
+           // mApiResultText.setText((String) content);
         }
     }
 

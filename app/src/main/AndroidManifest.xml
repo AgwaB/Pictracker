@@ -22,6 +22,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".Nickname"></activity>
 
         <!-- 네이버 아이디로 로그인에서 사용하는 액티비티를 등록 -->
         <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
