@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,7 +26,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity{
     private  String OAUTH_CLIENT_ID = "NKAQU3DVjYs2fffxjTQ4";
     private  String OAUTH_CLIENT_SECRET = "iv9VMvr2Y6";
     private  String OAUTH_CLIENT_NAME = "네이버 아이디로 로그인";
@@ -67,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         );
 
     }
+
+
 
 
     /**
