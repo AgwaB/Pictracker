@@ -14,7 +14,14 @@ import android.widget.Toast;
 
 import com.example.pictracker.RetrofitService.APIService;
 import com.example.pictracker.RetrofitService.ApiUtils;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.nhn.android.naverlogin.OAuthLogin;
+import com.nhn.android.naverlogin.OAuthLoginDefine;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 
@@ -26,6 +33,10 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+///////////https://developers.facebook.com/docs/facebook-login/android/?locale=ko_KR 페이스북 로그인 참고 현재 로그인만 되고 정보 안가져옴
+///////////네이버 로그인창으로 이동하기, 필요한 정보 알아서 저장하기
+
+
 public class MainActivity extends FragmentActivity{
     private  String OAUTH_CLIENT_ID = "NKAQU3DVjYs2fffxjTQ4";
     private  String OAUTH_CLIENT_SECRET = "iv9VMvr2Y6";
@@ -35,18 +46,47 @@ public class MainActivity extends FragmentActivity{
     public Map<String,String>       mUserInfoMap;
 
     private static Context mContext;
+
+
+    CallbackManager callbackManager;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.TranslucentStatusBar);
         setContentView(R.layout.activity_main);
+        ////////////////////////페이스북/////////////////////////////
+        callbackManager = CallbackManager.Factory.create();
+        LoginButton loginButton = (LoginButton)findViewById(R.id.facebook_login_button);
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+
+            }
+        }); //loginButton에 callback 등록하면 loginManager에는 등록 안해도 됨.
+
+        ///////////////////////페이스북//////////////////////////////
+
 
 
         mContext = getApplicationContext();
 
+        OAuthLoginDefine.DEVELOPER_VERSION = true;
 
         mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.buttonOAuthLoginImg);
         mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
-        mOAuthLoginButton.setBgResourceId(R.drawable.naver_login_green);
+       // mOAuthLoginButton.setBgResourceId(R.drawable.naver_login_green);
         mOAuthLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,5 +185,14 @@ public class MainActivity extends FragmentActivity{
         protected void onPostExecute(String res) {
           //  updateView();
         }
+    }
+
+    /////////////////////Facebook 로그인////////////////////////
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 }
