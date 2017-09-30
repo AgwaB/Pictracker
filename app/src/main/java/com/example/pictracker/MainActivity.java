@@ -17,6 +17,8 @@ import com.example.pictracker.RetrofitService.ApiUtils;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -25,11 +27,13 @@ import com.nhn.android.naverlogin.OAuthLoginDefine;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 
+import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,10 +63,30 @@ public class MainActivity extends FragmentActivity{
         ////////////////////////페이스북/////////////////////////////
         callbackManager = CallbackManager.Factory.create();
         LoginButton loginButton = (LoginButton)findViewById(R.id.facebook_login_button);
+
+        loginButton.setReadPermissions("public_profile", "email", "user_friends");
+
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
-            public void onSuccess(LoginResult loginResult) {
+            public void onSuccess(final LoginResult loginResult) {
+                Log.e("토큰",loginResult.getAccessToken().getToken());
+                Log.e("유저아이디",loginResult.getAccessToken().getUserId());
+                Log.e("퍼미션 리스트",loginResult.getAccessToken().getPermissions()+"");
 
+                //loginResult.getAccessToken() 정보를 가지고 유저 정보를 가져올수 있습니다.
+                GraphRequest request =GraphRequest.newMeRequest(loginResult.getAccessToken() ,
+                        new GraphRequest.GraphJSONObjectCallback() {
+                            @Override
+                            public void onCompleted(JSONObject object, GraphResponse response) { //object에 정보가 저장됨.
+                                try {
+                                    Log.i("user profile",object. toString());
+                                    Log.i("user profile",loginResult.getAccessToken().toString());
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                request.executeAsync();
             }
 
             @Override
