@@ -25,7 +25,10 @@
             </intent-filter>
         </activity>
 
-    <activity android:name=".Nickname"></activity>
+    <activity android:name=".Nickname"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+
+    </activity>
     <activity android:name=".PhothDetailPage.PicDetail"></activity>
 
         <!-- 네이버 아이디로 로그인에서 사용하는 액티비티를 등록 -->
