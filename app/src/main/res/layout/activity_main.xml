@@ -25,12 +25,49 @@
             android:layout_gravity="center"
             android:background="@drawable/login_pictracker"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="250dp"></View>
+        <Button
+            android:id="@+id/kakao_login_button"
+            android:layout_width="340dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            android:paddingLeft="15dp"
+            android:text="KAKAO LOGIN"
+            android:background="#33000000"
+            android:textColor="#3c1e1e"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"></View>
 
         <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
             android:id="@+id/buttonOAuthLoginImg"
             android:layout_marginLeft="25dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+
+        <Button
+            android:id="@+id/naver_login_button"
             android:layout_width="340dp"
-            android:layout_height="45dp" />
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            android:drawableLeft="@drawable/naver"
+            android:paddingLeft="15dp"
+            android:text="NAVER LOGIN"
+            android:background="#33000000"
+            android:textColor="#2cb400"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"></View>
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/facebook"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/facebook_login_button"
@@ -39,7 +76,9 @@
             android:layout_marginLeft="25dp"
             android:drawableLeft="@drawable/facebook"
             android:paddingLeft="15dp"
-            android:text="FACEBOOK LOGIN" />
+            android:text="FACEBOOK LOGIN"
+            android:background="#33000000"
+            android:textColor="#3b5999"/>
 
     </LinearLayout>
 </LinearLayout>

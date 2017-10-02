@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.pictracker.PhothDetailPage.PicDetail;
 import com.example.pictracker.RetrofitService.APIService;
 import com.example.pictracker.RetrofitService.ApiUtils;
 import com.facebook.CallbackManager;
@@ -47,10 +48,12 @@ public class MainActivity extends FragmentActivity{
     private  String OAUTH_CLIENT_NAME = "네이버 아이디로 로그인";
     private OAuthLogin mOAuthLoginModule;
     private OAuthLoginButton mOAuthLoginButton;
+    LoginButton loginButton;
     public Map<String,String>       mUserInfoMap;
 
     private static Context mContext;
 
+    Button kakaoButton, naverButton, facebookButton;
 
     CallbackManager callbackManager;
 
@@ -58,11 +61,42 @@ public class MainActivity extends FragmentActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.TranslucentStatusBar);
+       // setTheme(R.style.TranslucentStatusBar);
         setContentView(R.layout.activity_main);
-        ////////////////////////페이스북/////////////////////////////
-        callbackManager = CallbackManager.Factory.create();
-        LoginButton loginButton = (LoginButton)findViewById(R.id.facebook_login_button);
+
+
+        kakaoButton = (Button)findViewById(R.id.kakao_login_button);
+        naverButton = (Button)findViewById(R.id.naver_login_button);
+        facebookButton = (Button)findViewById(R.id.facebook_login_button);
+
+        kakaoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PicDetail.class);
+                startActivity(intent);
+
+            }
+        });
+
+        naverButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mOAuthLoginButton.performClick();
+            }
+        });
+
+        facebookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginButton.performClick();
+
+            }
+        });
+
+
+                ////////////////////////페이스북/////////////////////////////
+                callbackManager = CallbackManager.Factory.create();
+        loginButton = (LoginButton)findViewById(R.id.facebook);
 
         loginButton.setReadPermissions("public_profile", "email", "user_friends");
 
@@ -110,15 +144,13 @@ public class MainActivity extends FragmentActivity{
 
         mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.buttonOAuthLoginImg);
         mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
-       // mOAuthLoginButton.setBgResourceId(R.drawable.naver_login_green);
+
         mOAuthLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 mOAuthLoginModule.startOauthLoginActivity(MainActivity.this, mOAuthLoginHandler);
             }
         });
-
 
 
         mOAuthLoginModule = OAuthLogin.getInstance();
@@ -193,7 +225,7 @@ public class MainActivity extends FragmentActivity{
             return mOAuthLoginModule.requestApi(mContext, at, url);
         }
         protected void onPostExecute(String content) {// doInBackground return 값을 content로 받음
-
+            ///////////////////////////////content에 정보 들어있음
             Intent intent = new Intent(getApplicationContext(), Nickname.class);
             intent.putExtra("userInfoParse",content);
             startActivity(intent);

@@ -16,12 +16,11 @@ public class Nickname extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //setTheme(R.style.TranslucentStatusBar);
         setContentView(R.layout.set_nickname);
 
-        Intent intent = getIntent();
-
-        textView = (TextView)findViewById(R.id.userInfoParse);
-
-        textView.setText(intent.getStringExtra("userInfoParse"));
+//        Intent intent = getIntent();
+//
+//        textView.setText(intent.getStringExtra("userInfoParse"));
     }
 }
