@@ -57,6 +57,7 @@
             android:layout_height="5dp"></View>
 
         <Button
+            android:id="@+id/setting"
             android:textColor="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="45dp"

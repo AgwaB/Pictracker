@@ -8,6 +8,7 @@
 
 
     <application
+        android:name=".GlobalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,11 +26,18 @@
             </intent-filter>
         </activity>
 
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+
     <activity android:name=".Nickname"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
 
     </activity>
     <activity android:name=".PhothDetailPage.PicDetail"></activity>
+
+        <activity android:name=".AppMain"></activity>
+        <activity android:name=".KakaoSignupActivity"></activity>
 
         <!-- 네이버 아이디로 로그인에서 사용하는 액티비티를 등록 -->
         <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
