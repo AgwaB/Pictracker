@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:background="#ffff" />
+
+        <ImageView
+            android:id="@+id/btn_PickImgCancle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@android:color/transparent"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/delete_x2"
+            android:onClick="open_main_activity"/>
+
+        <Spinner
+            android:id="@+id/gallery_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:spinnerMode="dropdown"/>
+
+        <Button
+            android:id="@+id/btn_PickImgNext"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="다음"
+            android:background="@android:color/transparent"
+            android:onClick="openNewPhotoToPicshotSetting"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+        <!--android:onClick="openNewPhotoToPickshotSetting"-->
+
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/textView"
+            android:columnWidth="100dp"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp"
+            android:numColumns="4"
+            />
+
+
+    </RelativeLayout>
+
+    <!--<EditText
+        android:id="@+id/editText"
+        android:hint="여기에 쓰세요"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        android:onClick="pass"
+        android:id="@+id/submit"/>
+
+-->
+</ScrollView>

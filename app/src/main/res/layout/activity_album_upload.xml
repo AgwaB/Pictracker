@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.example.pictracker.AlbumUploadActivity">
+
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="앨범 업로드"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:paddingTop="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            android:background="#ffff" />
+
+
+        <TextView
+            android:id="@+id/album_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="TITLE"
+            android:background="#fff"
+            android:layout_below="@id/textView"
+            android:paddingTop="100dp"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/btn_Upload_Cancle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:onClick="openNewPicshot"
+            android:background="@android:color/transparent"
+            android:src="@drawable/delete_x2" />
+
+        <Button
+            android:id="@+id/btn_Upload"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="완료"
+            android:paddingBottom="5dp"
+            android:background="@android:color/transparent"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/add_buttons"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#fff"/>
+
+        <TextView
+            android:id="@+id/change_buttons"
+            android:layout_above="@id/add_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            />
+
+        <Button
+            android:id="@+id/add_pictures"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="사진추가"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/change_buttons"
+            android:background="@android:color/transparent"/>
+
+        <Button
+            android:id="@+id/add_picshot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="픽샷추가"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/add_pictures"
+            android:layout_below="@id/change_buttons"
+            android:background="@android:color/transparent"/>
+
+        <Button
+            android:id="@+id/add_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="#태그"
+            android:layout_above="@id/add_buttons"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="10dp"
+            android:background="@android:color/transparent"/>
+
+        <Button
+            android:id="@+id/change_cover"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="표지변경"
+            android:layout_above="@id/add_buttons"
+            android:layout_toRightOf="@id/add_tag"
+            android:paddingLeft="10dp"
+            android:background="@android:color/transparent"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:src="@drawable/color_bg2"
+            android:layout_above="@id/add_buttons"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="칼라변경"
+            android:background="@android:color/transparent"
+            android:layout_above="@id/add_buttons"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="0dp"/>
+
+        <ImageView
+            android:id="@+id/album_Cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/change_buttons"
+            android:layout_below="@+id/textView"
+            android:layout_gravity="center"
+            android:src="@drawable/album_img7"
+            />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

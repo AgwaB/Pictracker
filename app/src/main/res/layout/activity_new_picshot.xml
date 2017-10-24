@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.example.pictracker.NewPicshotActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_alignParentTop="true"
+            android:background="#ffff"
+            android:text="픽샷설정"
+            android:paddingTop="15dp"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/back_to_new_photo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@android:color/transparent"
+            android:onClick="openNewPhotoAdd"
+            android:src="@drawable/back" />
+
+
+        <Button
+            android:id="@+id/btn_complete"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:paddingBottom="5dp"
+            android:text="완료"
+            android:onClick="openAlbumUpload"
+            android:background="@android:color/transparent"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/position_number"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/title"
+            android:background="@android:color/transparent" />
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:text="위치"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/title"
+            android:textSize="15sp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:text="10/20"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/title"
+            android:textSize="15sp"
+            android:textAlignment="center"/>
+
+        <ImageView
+            android:id="@+id/arrow_picshot_tip"
+            android:onClick="open_pickshot_tip_popup"
+            android:layout_alignParentRight="true"
+            android:layout_above="@+id/btn_write_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/arrow"/>
+
+        <Button
+            android:id="@+id/btn_write_pickshot_tip"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="픽샷팁"
+            android:onClick="open_pickshot_tip_popup"
+            android:layout_above="@+id/btn_write_tag"
+            android:background="#fff"
+            android:layout_toLeftOf="@id/arrow_picshot_tip"
+            />
+
+        <ImageView
+            android:id="@+id/albums"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/btn_write_pickshot_tip"
+            android:layout_below="@id/position_number"
+            android:src="@drawable/album_img7"
+            android:background="@android:color/transparent"/>
+
+        <ImageView
+            android:id="@+id/arrow_position"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/arrow"/>
+
+        <Button
+            android:id="@+id/btn_position_setting"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="위치설정"
+            android:layout_alignParentBottom="true"
+            android:background="#fff"
+            android:layout_toLeftOf="@id/arrow_position"/>
+
+        <ImageView
+            android:id="@+id/arrow_tag"
+            android:layout_alignParentRight="true"
+            android:layout_above="@+id/btn_position_setting"
+            android:onClick="open_tag_popup"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingRight="5dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/arrow"/>
+
+        <Button
+            android:id="@+id/btn_write_tag"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="태그"
+            android:onClick="open_tag_popup"
+            android:layout_above="@+id/btn_position_setting"
+            android:background="#fff"
+            android:layout_toLeftOf="@id/arrow_tag"/>
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
