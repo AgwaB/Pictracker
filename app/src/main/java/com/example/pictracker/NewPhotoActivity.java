@@ -23,6 +23,7 @@ public class NewPhotoActivity extends Activity {
     private ArrayList pathList = new ArrayList();
     String[] item;
     GridView gridView;
+    
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
